@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { demo_backend } from 'declarations/demo_backend';
+import PingPong from "../components/ping";
 
 function App() {
   const [greeting, setGreeting] = useState('');
@@ -24,6 +25,7 @@ function App() {
         <button type="submit">Click Me!</button>
       </form>
       <section id="greeting">{greeting}</section>
+    <PingPong/>
     </main>
   );
 }

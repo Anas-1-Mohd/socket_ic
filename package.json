@@ -14,5 +14,9 @@
   "type": "module",
   "workspaces": [
     "src/demo_frontend"
-  ]
+  ],
+  "dependencies": {
+    "ic-websocket-js": "^0.3.4",
+    "react-icons": "^5.0.1"
+  }
 }
