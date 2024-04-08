@@ -31,14 +31,16 @@ const PingPong = () => {
 
   useEffect(() => {
     ws.onmessage = async (event) => {
+      console.log("onmessage:", event);
       try {
         setIsActive(true);
-        const recievedMessage = JSON.parse(event.data);
-
+        const recievedMessage = event.data;
+        // console.log(recievedMessage);
         const fromBackendMessage = {
           from: "backend",
           message: recievedMessage,
         };
+        // console.log(fromBackendMessage);
         setMessages((prev) => [...prev, fromBackendMessage]);
 
         setMessagesCount((prev) => prev + 1);
@@ -57,13 +59,14 @@ const PingPong = () => {
       const sentMessage = {
         message: "pong",
       };
-
-      ws.send(JSON.stringify(sentMessage));
+      
+      ws.send(sentMessage);
       const fromFrontendMessage = {
         from: "frontend",
         message: sentMessage,
       };
       setMessages((prev) => [...prev, fromFrontendMessage]);
+      console.log("sendmessage");
     } catch (error) {
       console.log("Error on sending message", error);
     }

@@ -17,7 +17,7 @@ const connect = new IcWebSocket(gatewayUrl, undefined, {
     networkUrl: icUrl,
   });
 
-  console.log(connect);
+  console.log("CONNECTION:",connect);
   
 export const ws = new IcWebSocket(gatewayUrl, undefined, {
   canisterId: canisterId,
