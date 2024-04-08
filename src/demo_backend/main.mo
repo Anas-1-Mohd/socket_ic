@@ -3,10 +3,7 @@ import IcWebSocketCdkState "mo:ic-websocket-cdk/State";
 import IcWebSocketCdkTypes "mo:ic-websocket-cdk/Types";
 import Text "mo:base/Text";
 import Debug "mo:base/Debug";
-import HashMap "mo:base/HashMap";
-import Buffer "mo:base/Buffer";
-import Blob "mo:base/Blob";
-import Bool "mo:base/Bool";
+
 import Principal "mo:base/Principal";
 
 actor {
@@ -69,7 +66,7 @@ actor {
     ?on_close,
   );
 
-  let ws = IcWebSocketCdk.IcWebSocket(ws_state, params, handlers);
+  let ws = IcWebSocketCdk.IcWebSocket<system>(ws_state, params, handlers);
 
   // method called by the WS Gateway after receiving FirstMessage from the client
   public shared ({ caller }) func ws_open(args : IcWebSocketCdk.CanisterWsOpenArguments) : async IcWebSocketCdk.CanisterWsOpenResult {
